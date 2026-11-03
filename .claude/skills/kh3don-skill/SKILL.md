@@ -23,6 +23,10 @@ When the user provides a current website (URL, build folder, zip or repo), recom
 
 Setup for the scripts: `npm i -D playwright sharp && npx playwright install chromium`.
 
+One command runs steps 1 and 3: `scripts/analyze-and-upgrade.sh <url|folder|zip> [out-dir]` (output in `audit/<site>/`).
+
+**Automatic trigger.** With the project's `.claude/settings.json` hook, a prompt such as "analyze and upgrade https://example.com" (or "audit & upgrade", "analyze … and recommend upgrading", "upgrade this website", or `/analyze-and-upgrade <target>`) runs `scripts/upgrade-router.sh`. It injects this whole procedure for the turn, including the other skills worth using: SEO, accessibility, brand, frontend design and PDF/Artifact deliverables.
+
 ## Phase 0: Gather the brand inputs
 
 Collect these before designing anything. Ask only for what is missing.
@@ -131,3 +135,5 @@ At the end, hand the user:
 - `scripts/analyze-site.cjs`: site analyzer (URL, folder or zip) producing `report.md`, `report.json` and screenshots, with `--baseline` for before/after.
 - `scripts/optimize-assets.cjs`: optimized drop-in copy of a site's images and models, sized from the analyzer report.
 - `scripts/optimize-model.sh`: GLB compression with glTF-Transform and meshopt.
+- `scripts/analyze-and-upgrade.sh`: one-command pipeline: analyze, then for local builds optimize and re-audit.
+- `scripts/upgrade-router.sh`: UserPromptSubmit hook that routes "analyze and upgrade" prompts through this mode.
