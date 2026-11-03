@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brand Name — Signature Experiences</title>
+  <meta name="description" content="Replace with one sentence that states the outcome for the client.">
+  <meta property="og:image" content="posters/hero.webp">
+  <link rel="preload" as="image" href="posters/hero.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+    "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
+    "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js",
+    "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs"
+  } }
+  </script>
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <!-- Preloader: part of the story. Removed by main.js once assets are ready (max ~4 s). -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__mark">BRAND</div>
+    <div class="loader__track"><div class="loader__bar"></div></div>
+  </div>
+
+  <!-- Fixed 3D stage behind the page. The poster is the first paint and the no-WebGL fallback. -->
+  <div class="stage" id="stage" aria-label="Brand emblem in 3D. Drag to turn it." role="img">
+    <img class="stage__poster" src="posters/hero.webp" alt="" onerror="this.remove()">
+    <canvas id="gl"></canvas>
+  </div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top">Brand Name</a>
+    <a class="btn btn--ghost" href="#contact" data-magnetic>Start a conversation</a>
+  </header>
+
+  <main id="top">
+    <!-- ACT 1 · HOOK -->
+    <section class="act hero">
+      <p class="eyebrow">Premium events · Brand experiences</p>
+      <h1 data-split>Made to be <em>remembered.</em></h1>
+      <p class="lede">From first impression to final applause. Replace with the brand promise in one or two sentences.</p>
+      <a class="btn" href="#contact" data-magnetic>Let us create your next moment →</a>
+    </section>
+
+    <!-- ACT 2 · REVEAL (pinned; camera moves with scroll) -->
+    <section class="act reveal" id="reveal">
+      <div class="reveal__copy">
+        <p class="statement"><span>01</span> The globe: reach and connection.</p>
+        <p class="statement"><span>02</span> The reel: storytelling and production.</p>
+        <p class="statement"><span>03</span> The hand: care and trusted delivery.</p>
+      </div>
+    </section>
+
+    <!-- ACT 3 · PROOF -->
+    <section class="act proof">
+      <h2 data-reveal>Trusted for moments that matter.</h2>
+      <div class="stats" data-stagger>
+        <div><b data-count="120">0</b><span>Events produced</span></div>
+        <div><b data-count="40">0</b><span>Brand partners</span></div>
+        <div><b data-count="12">0</b><span>Countries</span></div>
+      </div>
+    </section>
+
+    <!-- ACT 4 · DEPTH -->
+    <section class="act services">
+      <h2 data-reveal>What we create</h2>
+      <div class="cards" data-stagger>
+        <article class="card"><h3>Signature events</h3><p>Launches, galas and private celebrations, produced end to end.</p></article>
+        <article class="card"><h3>Brand partnerships</h3><p>Sponsorships and collaborations that work commercially.</p></article>
+        <article class="card"><h3>Production</h3><p>Stage, film and content crafted to the brand standard.</p></article>
+      </div>
+    </section>
+
+    <!-- ACT 5 · CLIMAX + CTA -->
+    <section class="act cta" id="contact">
+      <h2 data-split>Beautifully planned. <em>Brilliantly experienced.</em></h2>
+      <a class="btn" href="mailto:hello@example.com" data-magnetic>Start a conversation</a>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© Brand Name</span><span>Identity standards 1.0</span></footer>
+</body>
+</html>
